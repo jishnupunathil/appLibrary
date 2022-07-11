@@ -1,1 +1,59 @@
-<p>add-book works!</p>
+<div>
+    <div class="topnav">
+        <a routerLink="/">NATIONAL LIBRARY</a>
+        <a routerLink="/books" class="split">logout</a>
+        <!-- <a routerLink="/" class="split">Add Books</a> -->
+        <!-- <a routerLink="/books" class="split">Books</a> -->
+      </div>
+</div>
+
+<div class="image-main" >
+    <div class="container">
+    <form>
+        <div class="row">
+            <div class="col-25">
+              <label for="fname">Book Code</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="fname" name="firstname" placeholder="Book Code..">
+            </div>
+          </div>
+        <div class="row">
+            <div class="col-25">
+              <label for="fname">Book Name</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="fname" name="firstname" placeholder="Book Name..">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="lname">Book Author</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="lname" name="lastname" placeholder="book Author..">
+            </div>
+          </div>
+        <div class="row">
+        <div class="col-25">
+          <label for="fname">Book Genere </label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="fname" name="firstname" placeholder="Book Genere..">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="lname">Book Image</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="lname" name="lastname" placeholder="Book Image..">
+        </div>
+      </div><br>
+      <div class="row">
+        <button type="submit">Add Book</button>
+      </div>
+    </form>
+  </div>
+  <app-footer></app-footer>
+</div>
