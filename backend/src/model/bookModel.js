@@ -9,8 +9,8 @@ mongoose.connect('mongodb+srv://jishnu:wfO5EmnoeQguIugG@cluster1.e131p.mongodb.n
 
 const bookSchema = new mongoose.Schema({
 
-    Bcode:Number,
-    Bname:Number,
+    Bcode:String,
+    Bname:String,
     Bauthor:String,
     Bgenere:String,
     Bimage:String
