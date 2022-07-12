@@ -9,7 +9,8 @@ const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'books',component:BooksComponent},
   {path:'admin',component:AdminComponent},
-  {path:'addBook',component:AddBookComponent}
+  {path:'addBook',component:AddBookComponent},
+  {path:'edit/:id',component:AddBookComponent}
 ];
 
 @NgModule({

@@ -21,6 +21,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { AddBookComponent } from './add-book/add-book.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { AddBookComponent } from './add-book/add-book.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatButtonModule,
     MatTabsModule,
     MatCardModule,
@@ -47,7 +50,8 @@ import { AddBookComponent } from './add-book/add-book.component';
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

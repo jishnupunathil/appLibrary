@@ -1,2 +1,21 @@
 <app-header></app-header>
-<div class="bg-image"></div>
+<div class="bg-image">
+    <section class="container">
+<div class="card " *ngFor="let item of bookArray">
+    <div >
+        <img  class="card-image" [src]="item.Bimage">
+    </div>
+    <h2>{{item.Bname}}</h2>
+    <p>Code:{{item.Bcode}}</p>
+    <p>Author:{{item.Bauthor}}</p>
+    <p>Genere:{{item.Bgenere}}</p>
+    <button type="submit" class="btn btn-warning" (click)="navigateToEdit(item._id)">update</button><br>
+    <button type="submit" class="btn btn-danger" (click)="navigateToDelete(item._id)">delete</button>
+
+    </div>
+
+</section>
+<div class="footer bg-transparent">
+    <p>Copyright © 2022 | jishnu | library </p>
+  </div>
+</div>

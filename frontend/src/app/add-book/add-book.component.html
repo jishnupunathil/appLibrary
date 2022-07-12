@@ -9,13 +9,14 @@
 
 <div class="image-main" >
     <div class="container">
-    <form>
+    <form #bookForm="ngForm" (ngSubmit)="bookForm.valid&&onAddBook()">
         <div class="row">
             <div class="col-25">
-              <label for="fname">Book Code</label>
+              <label>Book Code</label>
             </div>
             <div class="col-75">
-              <input type="text" id="fname" name="firstname" placeholder="Book Code..">
+              <input type="text" required #Bcode="ngModel" name="Bcode" placeholder="Book Code.." [(ngModel)]="book.Bcode">
+              <small class="text-danger" *ngIf="bookForm.submitted&&Bcode.errors?.required">Book Code Required</small>
             </div>
           </div>
         <div class="row">
@@ -23,31 +24,35 @@
               <label for="fname">Book Name</label>
             </div>
             <div class="col-75">
-              <input type="text" id="fname" name="firstname" placeholder="Book Name..">
+              <input type="text" required #Bname="ngModel" name="Bname" placeholder="Book Name.." [(ngModel)]="book.Bname">
+              <small class="text-danger" *ngIf="bookForm.submitted&&Bname.errors?.required">Book Name Required</small>
             </div>
           </div>
           <div class="row">
             <div class="col-25">
-              <label for="lname">Book Author</label>
+              <label>Book Author</label>
             </div>
             <div class="col-75">
-              <input type="text" id="lname" name="lastname" placeholder="book Author..">
+              <input type="text" required #Bauthor="ngModel"  name="Bauthor" placeholder="book Author.." [(ngModel)]="book.Bauthor">
+              <small class="text-danger" *ngIf="bookForm.submitted&&Bauthor.errors?.required">Book Author Required</small>
             </div>
           </div>
         <div class="row">
         <div class="col-25">
-          <label for="fname">Book Genere </label>
+          <label>Book Genere </label>
         </div>
         <div class="col-75">
-          <input type="text" id="fname" name="firstname" placeholder="Book Genere..">
+          <input type="text" id="fname" #Bgenere="ngModel" required name="Bgenere" placeholder="Book Genere.." [(ngModel)]="book.Bgenere">
+          <small class="text-danger" *ngIf="bookForm.submitted&&Bgenere.errors?.required">Book genere Required</small>
         </div>
       </div>
       <div class="row">
         <div class="col-25">
-          <label for="lname">Book Image</label>
+          <label>Book Image</label>
         </div>
         <div class="col-75">
-          <input type="text" id="lname" name="lastname" placeholder="Book Image..">
+          <input type="text" required #Bimage="ngModel" name="Bimage" placeholder="Book Image.." [(ngModel)]="book.Bimage">
+          <small class="text-danger" *ngIf="bookForm.submitted&&Bimage.errors?.required">Book Image Required</small>
         </div>
       </div><br>
       <div class="row">
@@ -55,5 +60,10 @@
       </div>
     </form>
   </div>
-  <app-footer></app-footer>
+ <div><br><br>
+ 
+ </div>
+ <div class="footer bg-transparent">
+  <p>Copyright © 2022 | jishnu | library </p>
+</div>
 </div>
