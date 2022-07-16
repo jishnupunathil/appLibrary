@@ -3,6 +3,27 @@ const router = express.Router()
 const bookModel=require('../src/model/bookModel')
 const mongoose=require('mongoose')
 
+function verifyToken(req,res,next){
+
+    if(!req.headers.authorization){
+        return res.status(401).send('Unauthorized  Request')
+    }
+    let token=req.headers.authorization.split(' ')[1]
+
+    if(token=='null'){
+        return res.status(401).send('unauthorized 2 request')
+    }
+
+    let payload=jwt.verify(token,'secretKey')
+    console.log(payload)
+
+    if(!payload){
+        return res.status(401).send('Unauthorized request')
+    }
+
+    req.Bcode=payload.subject
+    next()
+}
 
 router.post('/',async(req,res)=>{
    

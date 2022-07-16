@@ -1,7 +1,18 @@
-<app-header></app-header>
+
+    <div class="topnav">
+        <a routerLink="/">NATIONAL LIBRARY</a>
+        <a routerLink="/admin" class="split">Admin?</a>
+        <a routerLink="/addBook" class="split">Add Books</a>
+        <a routerLink="/books" class="split">LogOut</a>
+      </div>
+
 <div class="bg-image">
+    <div>
+        <h2 class="bk">BOOK</h2>
+        </div>
     <section class="container">
-<div class="card " *ngFor="let item of bookArray">
+        
+<div class="card zoom" *ngFor="let item of bookArray">
     <div >
         <img  class="card-image" [src]="item.Bimage">
     </div>

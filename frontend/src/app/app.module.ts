@@ -21,8 +21,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { AddBookComponent } from './add-book/add-book.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { TestInterceptor } from './test.interceptor';
+import { BookService } from './book.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,7 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:TestInterceptor,multi:true},BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

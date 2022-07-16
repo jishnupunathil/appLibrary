@@ -48,9 +48,8 @@ export class AdminComponent implements OnInit {
   }
 
   onSubmit(data:any){
-    this.submitted=true
+    // this.submitted=true
     console.log({data});
-    
   }
 
 

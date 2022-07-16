@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class BookService {
 
+  server_address:string='api'
+
   constructor(private http:HttpClient) { }
 
   displayBooks(){
