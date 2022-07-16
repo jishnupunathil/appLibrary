@@ -25,6 +25,7 @@ import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TestInterceptor } from './test.interceptor';
 import { BookService } from './book.service';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,11 @@ import { BookService } from './book.service';
     MatSelectModule,
     FormsModule
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass:TestInterceptor,multi:true},BookService],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:TestInterceptor,multi:true},
+    BookService,
+    AuthService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

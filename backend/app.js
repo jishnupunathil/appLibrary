@@ -18,5 +18,5 @@ app.use('/login',loginRouter)
 
 
 app.listen(process.env.PORT || 5001,(req,res)=>{
-    console.log(res,'listenning to port 5001');
+    console.log('listenning to port 5001');
 })

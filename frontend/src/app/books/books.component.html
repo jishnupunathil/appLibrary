@@ -1,9 +1,9 @@
 
     <div class="topnav">
         <a routerLink="/">NATIONAL LIBRARY</a>
-        <a routerLink="/admin" class="split">Admin?</a>
-        <a routerLink="/addBook" class="split">Add Books</a>
-        <a routerLink="/books" class="split">LogOut</a>
+        <a routerLink="/admin" class="split" *ngIf="!auth.loggedIn()">Admin?</a>
+        <a routerLink="/addBook" class="split" *ngIf="auth.loggedIn()">Add Books</a>
+        <a routerLink="/books" class="split" *ngIf="auth.loggedIn()" (click)="logOutUser()">LogOut</a>
       </div>
 
 <div class="bg-image">
@@ -20,8 +20,8 @@
     <p>Code:{{item.Bcode}}</p>
     <p>Author:{{item.Bauthor}}</p>
     <p>Genere:{{item.Bgenere}}</p>
-    <button type="submit" class="btn btn-warning" (click)="navigateToEdit(item._id)">update</button><br>
-    <button type="submit" class="btn btn-danger" (click)="navigateToDelete(item._id)">delete</button>
+    <button type="submit" class="btn btn-warning" *ngIf="auth.loggedIn()" (click)="navigateToEdit(item._id)">update</button><br>
+    <button type="submit" class="btn btn-danger" *ngIf="auth.loggedIn()" (click)="navigateToDelete(item._id)">delete</button>
 
     </div>
 

@@ -1,13 +1,13 @@
-
 const express = require('express')
 const router = express.Router()
+const jwt=require('jsonwebtoken')
 
 
 
 
 
 username='admin'
-password='1234'
+password='12345'
 
 
 router.post('/',(req,res)=>{
@@ -18,12 +18,8 @@ router.post('/',(req,res)=>{
 
     // try{
 
-        if(!username){
-            res.status(401).send('invalid username')
-
-        }else 
-        if(password !== userData.password){
-            res.status(401).send('invalid password')
+        if(username !==userData.username||password !== userData.password){
+            res.status(401).send('invalid username or password')
         }else{
 
             let payload={subject:username+password}

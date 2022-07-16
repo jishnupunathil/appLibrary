@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 import { BookService } from '../book.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { BookService } from '../book.service';
 })
 export class BooksComponent implements OnInit {
 bookArray:any=[]
-  constructor(private bookService:BookService,private router:Router) { }
+  constructor(private bookService:BookService,private router:Router,public auth:AuthService) { }
 
   ngOnInit(){
     this.bookService.displayBooks().subscribe((res)=>{
@@ -37,5 +38,10 @@ navigateToDelete(id:any){
 
   
 
+}
+
+logOutUser(){
+  localStorage.removeItem('token')
+  this.router.navigate(['/login'])
 }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -8,16 +10,14 @@ import { FormBuilder,Validators} from '@angular/forms';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,private auth:AuthService,private router:Router) { }
   hide=false
   signHide=false
   submitted=false
   signSubmit=false
 
-  loginForm=this.fb.group({
-    Username:['',Validators.required],
-    password:['',[Validators.required,Validators.minLength(6)]]
-  })
+  user={username:'',
+  password:''}
 
   signUpForm=this.fb.group({
 
@@ -47,12 +47,19 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(data:any){
-    // this.submitted=true
-    console.log({data});
+  loginUser(){
+
+    
+    this.auth.loginUser(this.user).subscribe(
+      res=>{
+
+        localStorage.setItem('token',res.token)
+
+        this.router.navigate(['/books'])
+      })
+
   }
-
-
+  
   onSign(data:any){
     this.signSubmit=true
     console.log(data);
@@ -60,9 +67,9 @@ export class AdminComponent implements OnInit {
 
   }
 
- get allControls(){
-    return this.loginForm.controls
-  }
+//  get allControls(){
+//     return this.loginForm.controls
+//   }
 
   get signControls(){
 

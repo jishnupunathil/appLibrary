@@ -6,30 +6,29 @@ import { Injectable } from '@angular/core';
 })
 export class BookService {
 
-  server_address:string='api'
 
   constructor(private http:HttpClient) { }
 
   displayBooks(){
 
-    return this.http.get<any>('http://localhost:5001/books')
+    return this.http.get<any>('books')
   }
 
   createbook(data:any){
-    return this.http.post<any>('http://localhost:5001/books',{data})
+    return this.http.post<any>('books',{data})
   }
 
   displayBooksById(id:any){
 
-    return this.http.get<any>(`http://localhost:5001/books/${id}`)
+    return this.http.get<any>(`books/${id}`)
 
   }
 
   updateBook(id:any,data:any){
-    return this.http.put<any>(`http://localhost:5001/books/${id}`,data)
+    return this.http.put<any>(`books/${id}`,data)
   }
 
   deleteBook(id:any){
-    return this.http.delete(`http://localhost:5001/books/${id}`)
+    return this.http.delete(`books/${id}`)
   }
 }
