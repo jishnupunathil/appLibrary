@@ -26,7 +26,7 @@ function verifyToken(req,res,next){
     next()
 }
 
-router.post('/',async(req,res)=>{
+router.post('/',verifyToken,async(req,res)=>{
    
 console.log('body',req.body);
     try{
